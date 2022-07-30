@@ -97,7 +97,7 @@ st.title(":male-detective: Financial News Summarization")
 
 listOfTopics = ['hong-kong-stock-exchange','hong-kong-economy','china-stock-market','stocks','commodities','regulation','currencies','bonds','stocks-blog','central-banks']
 
-col1, col2 = st.columns(2)
+col1 = st.columns(1)
 
 containsUpload = False
 with col1:
@@ -112,20 +112,6 @@ with col1:
 
     st.caption('Current List of Keywords')
     st.write((chosen_topics))
-
-with col2:
-    st.subheader('Use your custom dataframe for training')
-    uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=True)
-    for uploaded_file in uploaded_files:
-        # bytes_data = uploaded_file.read()
-        st.write("filename:", uploaded_file.name)
-
-        # To convert to a string based IO:
-        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-        dataframe = pd.read_csv(stringio)
-        st.write(dataframe)
-        containsUpload = True
-
 
 submitted = st.button("Submit")
     
