@@ -100,18 +100,18 @@ listOfTopics = ['hong-kong-stock-exchange','hong-kong-economy','china-stock-mark
 col1 = st.columns(1)
 
 containsUpload = False
-with col1:
-    st.subheader('Generate SCMP news scraping manually')
-    chosen_topics = st_tags(
-                label='Add Topics here!',
-                text='Press enter to add more',
-                value=listOfTopics,
-                suggestions=['hong-kong-stock-exchange','hong-kong-economy','china-stock-market','stocks','commodities','regulation','currencies','bonds','stocks-blog','central-banks'],
-                key="aljnf"
-            )
 
-    st.caption('Current List of Keywords')
-    st.write((chosen_topics))
+st.subheader('Generate SCMP news scraping manually')
+chosen_topics = st_tags(
+    label='Add Topics here!',
+    text='Press enter to add more',
+    value=listOfTopics,
+    suggestions=['hong-kong-stock-exchange','hong-kong-economy','china-stock-market','stocks','commodities','regulation','currencies','bonds','stocks-blog','central-banks'],
+    key="aljnf"
+)
+
+st.caption('Current List of Keywords')
+st.write((chosen_topics))
 
 submitted = st.button("Submit")
     
