@@ -86,7 +86,7 @@ def newScraper(listOfTopics):
 
     df = pd.DataFrame(data, columns=['SCMP news headline','alternativeHeadline','Summary Points','Author','Content','Date Published','Date Created','Date Modified','Article Link','Image Link','Section'])
     print(df)
-    df.to_csv('SCMPNewsScrapeResults.csv',index=False)
+    # df.to_csv('SCMPNewsScrapeResults.csv',index=False)
 
 
     st.success('SCMP News Scraping completed successfully.')
@@ -120,7 +120,8 @@ if submitted:
         st.write('Use Existing Datasets.')
     else:
         st.write('SCMP News Scraping for the following topics: ',str(chosen_topics))
-        df = newScraper(chosen_topics)   
+        df = newScraper(chosen_topics)
+        df = df.to_csv().encode('utf-8')
         st.download_button(
             label="Download data as CSV",
             data=df,
